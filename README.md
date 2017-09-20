@@ -8,6 +8,9 @@ A pure JavaScript written transformable image component, like PhotoView or Image
 
 Written in pure JS, this component should be one of the most easy to use component among all the zoomable, scrollable PhotoView alike views on react-native. 
 
+## About this fork
+I want images to be scaled up to take up the full view, so I need to be able to set defaultScale and minScale.
+
 ## Install
 
  `npm install --save react-native-transformable-image@latest`
