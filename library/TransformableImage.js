@@ -21,8 +21,8 @@ export default class TransformableImage extends Component {
 
     enableTransform: PropTypes.bool,
     enableScale: PropTypes.bool,
+    initialScale: PropTypes.number,
     enableTranslate: PropTypes.bool,
-    onSingleTapConfirmed: PropTypes.func,
     onTransformGestureReleased: PropTypes.func,
     onViewTransformed: PropTypes.func
   };
@@ -62,6 +62,10 @@ export default class TransformableImage extends Component {
 
   render() {
     let maxScale = 1;
+    let minScale = 1;
+    if (this.props.initialScale * 0.8 > 1) {
+      minScale = this.props.initialScale * 0.8;
+    }
     let contentAspectRatio = undefined;
     let width, height; //pixels
 
@@ -94,8 +98,9 @@ export default class TransformableImage extends Component {
         enableResistance={true}
         onTransformGestureReleased={this.props.onTransformGestureReleased}
         onViewTransformed={this.props.onViewTransformed}
-        onSingleTapConfirmed={this.props.onSingleTapConfirmed}
+        minScale={minScale}
         maxScale={maxScale}
+        initialScale={this.props.initialScale}
         contentAspectRatio={contentAspectRatio}
         onLayout={this.onLayout.bind(this)}
         style={this.props.style}>
@@ -123,6 +128,7 @@ export default class TransformableImage extends Component {
     this.setState({
       imageLoaded: true
     });
+
   }
 
   onLayout(e) {
