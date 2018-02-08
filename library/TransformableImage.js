@@ -64,7 +64,7 @@ export default class TransformableImage extends Component {
     let maxScale = 1;
     let minScale = 1;
     if (this.props.initialScale * 0.8 > 1) {
-      minScale = this.props.initialScale * 0.8;
+      minScale = this.props.initialScale;
     }
     let contentAspectRatio = undefined;
     let width, height; //pixels
