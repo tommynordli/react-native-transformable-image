@@ -99,7 +99,7 @@ export default class TransformableImage extends Component {
         onTransformGestureReleased={this.props.onTransformGestureReleased}
         onViewTransformed={this.props.onViewTransformed}
         minScale={minScale}
-        maxScale={maxScale}
+        maxScale={this.props.maxScale || maxScale}
         initialScale={this.props.initialScale}
         contentAspectRatio={contentAspectRatio}
         onLayout={this.onLayout.bind(this)}
